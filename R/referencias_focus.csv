@@ -1,0 +1,11 @@
+recurso,indicador,data,periodo,suavizada,baseCalculo,mediana_pdf,respondentes_pdf,pdf
+ExpectativasMercadoAnuais,IPCA,2026-10-16,2026,,0,5.22,137,R20261016.pdf
+ExpectativasMercadoAnuais,IPCA,2026-10-16,2027,,0,4.32,137,R20261016.pdf
+ExpectativasMercadoAnuais,Selic,2026-10-16,2027,,0,12.00,132,R20261016.pdf
+ExpectativaMercadoMensais,IPCA,2026-10-16,10/2026,,0,0.32,131,R20261016.pdf
+ExpectativasMercadoInflacao12Meses,IPCA,2026-10-16,,S,0,4.51,125,R20261016.pdf
+ExpectativasMercadoAnuais,IPCA,2026-10-23,2026,,0,5.19,142,R20261023.pdf
+ExpectativasMercadoAnuais,IPCA,2026-10-23,2027,,0,4.34,142,R20261023.pdf
+ExpectativasMercadoAnuais,Selic,2026-10-23,2027,,0,11.75,136,R20261023.pdf
+ExpectativaMercadoMensais,IPCA,2026-10-23,10/2026,,0,0.28,135,R20261023.pdf
+ExpectativasMercadoInflacao12Meses,IPCA,2026-10-23,,S,0,4.53,129,R20261023.pdf
