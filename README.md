@@ -4,9 +4,15 @@ Este projeto coleta os **13 recursos públicos ativos** do BCB. O [relatório hi
 
 **Clone do GitHub:** toda a pasta `dados/` é ignorada, inclusive bancos, páginas brutas, manifestos e `dados/atual.json`. Para executar as consultas e o notebook em outra máquina, restaure o ambiente R e rode `Rscript R/carga_historica.R iniciar` para gerar um novo snapshot local.
 
+Os CSVs de pesquisa em `projects/data/` também são locais e ignorados pelo Git. Para recriar os dados do IPCA do IBGE, execute `Rscript projects/download_ibge_ipca.R`; o [guia de dados do projeto](projects/data/README.md) descreve os três arquivos e suas fontes. Os notebooks de exploração dos brutos estão sem saídas salvas nesta versão; execute as células para ver os registros e limpe as saídas antes de fazer commit.
+
 ## Notebook da última pesquisa
 
 [notebooks/ultima_pesquisa_focus_brutos.ipynb](notebooks/ultima_pesquisa_focus_brutos.ipynb) usa o kernel R para explorar a última `Data` disponível nos 12 recursos estatísticos. Abre as páginas JSON comprimidas da coleta correspondente, confere seus SHA-256 e contagens contra o SQLite, examina campos/tipos/chaves, compara agregado e Top 5 e trata `DatasReferencia` separadamente. Em **02/11/2026**, a API e o snapshot local terminavam em **23/10/2026**; o notebook recalcula a data quando executado novamente.
+
+[notebooks/brutos_2026-10-23.ipynb](notebooks/brutos_2026-10-23.ipynb) imprime os **1.290 objetos JSON originais** de `Data = 2026-10-23`, separados pelos 12 recursos. Ao ser executado, confere os arquivos brutos com os manifestos antes de imprimi-los. As saídas não são armazenadas no Git.
+
+**Escopo dos “brutos”:** são as respostas originais da API de estatísticas, já agregadas pelo BCB; `numeroRespondentes` é uma contagem, não um identificador, e não há previsões individuais nesse snapshot. O recurso de microdados `ExpectativasMercadoInstituicoes` está [desativado pelo BCB por risco de quebra de confidencialidade](https://dadosabertos.bcb.gov.br/dataset/expectativas-mercado/resource/2231aecd-3dbe-4e1a-bae6-674d3be225a1).
 
 Para abrir a partir da raiz do projeto, após restaurar o ambiente com `Rscript -e 'renv::restore(prompt = FALSE)'` e ter o kernel R do Jupyter instalado:
 
@@ -14,7 +20,7 @@ Para abrir a partir da raiz do projeto, após restaurar o ambiente com `Rscript 
 jupyter lab notebooks/ultima_pesquisa_focus_brutos.ipynb
 ```
 
-O arquivo já contém os resultados da execução verificada. Se o kernel R ainda não aparecer no Jupyter, execute `Rscript -e 'IRkernel::installspec(user = TRUE)'` uma vez. O notebook aceita execução a partir da raiz ou de `notebooks/` e usa `dados/atual.json`, sem baixar nem substituir dados.
+Execute as células para gerar os resultados. Se o kernel R ainda não aparecer no Jupyter, execute `Rscript -e 'IRkernel::installspec(user = TRUE)'` uma vez. O notebook aceita execução a partir da raiz ou de `notebooks/` e usa `dados/atual.json`, sem baixar nem substituir dados.
 
 ## Carga histórica, retomada e atualização
 

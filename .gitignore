@@ -1,2 +1,4 @@
 dados/
+/projects/data/*
+!/projects/data/README.md
 .DS_Store
