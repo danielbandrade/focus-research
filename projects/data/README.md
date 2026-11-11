@@ -17,4 +17,6 @@ The Focus command creates `dados/atual.json` and a local SQLite snapshot. The IB
 
 Run `projects/ipca_rolling_horizon_comparison.ipynb` with the R kernel to recreate `ipca_rolling_horizon_comparison_200111_202501.csv`. The notebook checks the expected month coverage before calculating results. It also includes static figure previews in `projects/figures/`.
 
+Run `projects/ipca_focus_vs_ar1_comparison.ipynb` after that comparison notebook to recreate `ipca_focus_vs_ar1_200611_202501.csv`, the matched Focus and AR(1) forecast panel.
+
 The data are public, but a fresh download may reflect revisions to the official series. The results currently shown in the notebooks use the Focus snapshot `20261029T204913Z` and IBGE data downloaded in November 2026.

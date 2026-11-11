@@ -1,0 +1,120 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+
+% Outline for the required 6--8 page final article.
+\title{Historical Accuracy of Rolling Focus IPCA Forecasts}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\begin{itemize}
+  \item Main question: how do Focus-based IPCA forecast errors vary across rolling 3-, 6-, and 12-month horizons?
+  \item Secondary questions: 
+  \begin{itemize}
+    \item How is 12-month forecaster disagreement related to error?
+    \item What is the performance of these forecast errors compared with an order one autoregressive rule? 
+  \end{itemize}
+  \item Main finding: cumulative mean absolute error (MAE) is 0.434, 0.953, and 1.794 percentage points, respectively, across 279 matched forecast months.
+  \item State the main interpretation and its horizon-scale limitation.
+\end{itemize}
+\end{abstract}
+
+\section{Introduction}
+\begin{itemize}
+  \item Motivate the comparison of past Focus expectations with realized Brazilian IPCA.
+  \item State the two research questions and explain the rolling forecast windows.
+\end{itemize}
+
+\section{Methods}
+
+\subsection{Data}
+This works is based mainly on two data sources:
+\begin{itemize}
+  \item The expectation for inflation report from the Brazilian Central Bank, wich collects weekly data from market participants. 
+  \item The IBGE monthly realized inflation report. 
+\end{itemize}
+
+\subsection{Forecasts and error measures}
+\begin{itemize}
+  \item Compound the next 3, 6, or 12 monthly Focus medians; calculate realized inflation from matching IBGE index ratios.
+  \item Define signed error as forecast minus realized inflation: negative means underestimation and positive means overestimation. Report both direction counts and absolute-error measures, including MAE, quantiles, and ECDFs.
+  \item Compare the constructed 12-month forecast with the BCB's published 12-month median; use published dispersion only with the published forecast's error.
+\end{itemize}
+
+\subsection{Annual target check: direction and closeness}
+\begin{itemize}
+  \item Treat the 25 calendar-year forecasts in the annual notebook as a separate sample from the rolling monthly panel.
+  \item Define relative error as $|\hat{\pi}_y-\pi_y|/|\pi_y|$, where $\hat{\pi}_y$ is forecast IPCA and $\pi_y$ is realized IPCA. Call a forecast ``90\% close'' when the error is at most 0.10 (within 90--110\% of the realized value), and ``95\% close'' when it is at most 0.05. This treats under- and overestimation symmetrically.
+  \item Show the signed-error distribution around zero and an ECDF of relative error with markers at 5\% and 10\%.
+\end{itemize}
+
+\subsection{Simulation}
+\begin{itemize}
+  \item Use 10,000 paired circular moving-block bootstrap draws with 12-month blocks and seed \texttt{20261102}.
+  \item Report percentile 95\% intervals, convergence at 1,000/5,000/10,000 draws, and sensitivity to 6- and 24-month blocks.
+\end{itemize}
+
+\section{Results}
+\subsection{Main finding and descriptive statistics}
+\begin{center}
+\begin{tabular}{lrr}
+\hline
+Constructed horizon & MAE (p.p.) & Mean signed error (p.p.) \\
+\hline
+3 months  & 0.434 & -0.165 \\
+6 months  & 0.953 & -0.436 \\
+12 months & 1.794 & -1.033 \\
+\hline
+\end{tabular}
+\end{center}
+\begin{itemize}
+  \item The 12-minus-3-month MAE difference is 1.360 p.p.; its 12-month-block bootstrap 95\% interval is 0.788--2.089 p.p.
+  \item Present the ECDFs, error distribution shapes, under/overestimation frequencies, and the other paired horizon contrasts.
+\end{itemize}
+
+\subsection{Published 12-month benchmark and disagreement}
+\begin{itemize}
+  \item Published 12-month MAE: 1.809 p.p.; mean absolute gap from the constructed 12-month forecast: 0.049 p.p.
+  \item Spearman correlation between published forecast dispersion and subsequent absolute error: $\rho=0.245$ (bootstrap 95\% interval: 0.046--0.413).
+  \item Show the forecast comparison, disagreement scatter plot, bootstrap distribution, and convergence diagnostics.
+\end{itemize}
+
+\subsection{Annual target check: descriptive results}
+\begin{itemize}
+  \item Of 25 annual forecasts, 16 underestimated realized IPCA and 9 overestimated it; mean signed error was -0.984 p.p.
+  \item Seven forecasts (28\%) were within 10\% of realized inflation; one (4\%) was within 5\%. Show these counts on the relative-error ECDF.
+\end{itemize}
+
+\section{Discussion}
+\begin{itemize}
+  \item Interpret the results while accounting for the different scales of cumulative 3-, 6-, and 12-month inflation.
+  \item Keep the annual 25-year check distinct from the 279-month rolling analysis. The 90\% and 95\% closeness thresholds are descriptive tolerances, not confidence levels.
+  \item Discuss overlapping windows, possible macroeconomic regime changes, aggregate Focus statistics, and historical data revisions.
+  \item Identify questions for further analysis.
+\end{itemize}
+
+\section*{References}
+\begin{itemize}
+  \item Banco Central do Brasil: Focus expectations data and 12-month forecast methodology.
+  \item Instituto Brasileiro de Geografia e Estatistica: SIDRA table 1737, annual IPCA table, and IPCA documentation.
+  \item Add the methodological reference used for the moving-block bootstrap.
+\end{itemize}
+
+\appendix
+\section{Additional Methods and AI Use}
+\begin{itemize}
+  \item Add any detailed data checks and simulation diagnostics needed beyond the main article.
+  \item Explain how AI was used in research, coding, and writing, and how the results were checked.
+\end{itemize}
+
+\section{Implementation}
+\begin{itemize}
+  \item Include key R code or point to the supplementary analysis notebooks.
+  \item Record the Focus snapshot, IBGE source, filters, package versions, and simulation seeds.
+\end{itemize}
+
+\end{document}
