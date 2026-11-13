@@ -19,4 +19,6 @@ Run `projects/ipca_rolling_horizon_comparison.ipynb` with the R kernel to recrea
 
 Run `projects/ipca_focus_vs_ar1_comparison.ipynb` after that comparison notebook to recreate `ipca_focus_vs_ar1_200611_202501.csv`, the matched Focus and AR(1) forecast panel.
 
+Run `projects/ipca_quarterly_agent_comparison.ipynb` after the rolling Focus panel notebook to recreate `ipca_quarterly_agent_comparison_200701_202501.csv`. It refits an AR(1) rule once per quarter and compares 73 matched quarterly origins with Focus at 3, 6, and 12 months.
+
 The data are public, but a fresh download may reflect revisions to the official series. The results currently shown in the notebooks use the Focus snapshot `20261029T204913Z` and IBGE data downloaded in November 2026.

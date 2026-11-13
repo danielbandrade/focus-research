@@ -1,6 +1,7 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=2.5cm]{geometry}
 \usepackage[T1]{fontenc}
+\usepackage{url}
 
 % Outline for the required 6--8 page final article.
 \title{Historical Accuracy of Rolling Focus IPCA Forecasts}
@@ -16,39 +17,33 @@
   \item Secondary questions: 
   \begin{itemize}
     \item How is 12-month forecaster disagreement related to error?
-    \item What is the performance of these forecast errors compared with an order one autoregressive rule? 
+    \item How does a quarterly refitted AR(1) forecasting agent compare with an agent using Focus forecasts on matched dates?
   \end{itemize}
   \item Main finding: cumulative mean absolute error (MAE) is 0.434, 0.953, and 1.794 percentage points, respectively, across 279 matched forecast months.
-  \item State the main interpretation and its horizon-scale limitation.
+  \item On the 73 quarterly origins used for the agent simulation, Focus has lower MAE at all three horizons; the 12-month paired bootstrap interval includes zero.
 \end{itemize}
 \end{abstract}
 
 \section{Introduction}
 \begin{itemize}
   \item Motivate the comparison of past Focus expectations with realized Brazilian IPCA.
-  \item State the two research questions and explain the rolling forecast windows.
+  \item Introduce the quarterly AR(1) forecasting agent inspired by Poledna et al.~\cite{poledna2023}, and compare it with Focus on identical dates and horizons.
 \end{itemize}
 
 \section{Methods}
 
 \subsection{Data}
-The Central Bank of Brazil publishes a weekly suvey on the expectations of economic indicators from financial market players, called the Focus Report. From this survey, we can recorver the estimate for the consumer inflation rate of Brazil, the IPCA, for following 3, 6 and 12 months. On the other hand, the Brazilian Institute for Statistcs (IBGE) publishes the monthly realized value for the IPCA. This study will use data from both of these sources to calculate statistics and produce simulations regarding the error between expected and realized value of inflation in Brazil. We use 279 forecast dates, one per month from November 2001 through January 2025.
+The Central Bank of Brazil publishes a weekly suvey on the expectations of economic indicators from financial market players, called the Focus Report~\cite{bcbfocus}. From this survey, we can recorver the estimate for the consumer inflation rate of Brazil, the IPCA, for following 3, 6 and 12 months. On the other hand, the Brazilian Institute for Statistcs (IBGE) publishes the monthly realized value for the IPCA~\cite{ibgeipca}. This study will use data from both of these sources to calculate statistics and produce simulations regarding the error between expected and realized value of inflation in Brazil. We use 279 forecast dates, one per month from November 2001 through January 2025.
 
 \subsection{Forecasts and error measures}
-The core measurement for this work will be the signed error for the inflation expectations, defined as the forecast minus the realized inflation. From this, we will also relport absolute-error measures, including mean absolute errors (MAE), quantiles, and empirical cumulative distribution functions (ECDFs). We will also explore if the signed error is related to the standart deviation of the prediction. 
+The core measurement for this work will be the signed error for the inflation expectations, defined as the median forecast minus the realized inflation. From this, we will also relport absolute-error measures, including mean absolute errors (MAE), quantiles, and empirical cumulative distribution functions (ECDFs). We will also explore if the signed error is related to the standart deviation of the prediction. 
 
 \subsection{Annual target check: direction and closeness}
-\begin{itemize}
-  \item Treat the 25 calendar-year forecasts in the annual notebook as a separate sample from the rolling monthly panel.
-  \item Define relative error as $|\hat{\pi}_y-\pi_y|/|\pi_y|$, where $\hat{\pi}_y$ is forecast IPCA and $\pi_y$ is realized IPCA. Call a forecast ``90\% close'' when the error is at most 0.10 (within 90--110\% of the realized value), and ``95\% close'' when it is at most 0.05. This treats under- and overestimation symmetrically.
-  \item Show the signed-error distribution around zero and an ECDF of relative error with markers at 5\% and 10\%.
-\end{itemize}
+We also analyse the closeness of the inflation forecasts, defined as $|\hat{\pi}_y-\pi_y|/|\pi_y|$, where $\hat{\pi}_y$ is forecast IPCA and $\pi_y$ is realized IPCA. Call a forecast ``90\% close'' when the error is at most 0.10 (within 90--110\% of the realized value), and ``95\% close'' when it is at most 0.05. This treats under- and overestimation symmetrically. We will calculate the signed-error distribution around zero and an ECDF of relative error with markers at 5\% and 10\%.
+
 
 \subsection{Simulation}
-\begin{itemize}
-  \item Use 10,000 paired circular moving-block bootstrap draws with 12-month blocks and seed \texttt{20261102}.
-  \item Report percentile 95\% intervals, convergence at 1,000/5,000/10,000 draws, and sensitivity to 6- and 24-month blocks.
-\end{itemize}
+In the macroeconomic agent based model of Poledna et al.~\cite{poledna2023}, the agents use a fitted AR(1) rule for estimating the inflation for the next quarter. We will apply a similar rule in this study and compare it with the predictions from the focus report. The data will be 73 quarterly origins from January 2007 through January 2025.
 
 \section{Results}
 \subsection{Main finding and descriptive statistics}
@@ -64,8 +59,9 @@ Constructed horizon & MAE (p.p.) & Mean signed error (p.p.) \\
 \end{tabular}
 \end{center}
 \begin{itemize}
-  \item The 12-minus-3-month MAE difference is 1.360 p.p.; its 12-month-block bootstrap 95\% interval is 0.788--2.089 p.p.
-  \item Present the ECDFs, error distribution shapes, under/overestimation frequencies, and the other paired horizon contrasts.
+  \item The 12-minus-3-month MAE difference is 1.360 p.p.; its 12-month-block bootstrap 95\% interval is 0.788--2.089 p.p. The block-bootstrap approach follows K\"unsch~\cite{kunsch1989}.
+  \item In the separate quarterly agent comparison, Focus MAE versus AR(1) MAE is 0.396 versus 0.648 p.p. at 3 months, 0.866 versus 1.160 p.p. at 6 months, and 1.572 versus 1.821 p.p. at 12 months.
+  \item The quarterly paired-bootstrap intervals for Focus's MAE gain are 0.133--0.376, 0.076--0.495, and -0.224--0.692 p.p., respectively; the 12-month interval includes zero.
 \end{itemize}
 
 \subsection{Published 12-month benchmark and disagreement}
@@ -83,18 +79,36 @@ Constructed horizon & MAE (p.p.) & Mean signed error (p.p.) \\
 
 \section{Discussion}
 \begin{itemize}
-  \item Interpret the results while accounting for the different scales of cumulative 3-, 6-, and 12-month inflation.
+  \item Interpret the 279-month Focus results while accounting for the different scales of cumulative 3-, 6-, and 12-month inflation.
+  \item Compare the two forecasting agents within each horizon. The quarterly AR(1) rule uses lagged realized IPCA; Focus uses professional expectations. This is not a model of agent interaction or causal effects on inflation.
   \item Keep the annual 25-year check distinct from the 279-month rolling analysis. The 90\% and 95\% closeness thresholds are descriptive tolerances, not confidence levels.
-  \item Discuss overlapping windows, possible macroeconomic regime changes, aggregate Focus statistics, and historical data revisions.
+  \item Discuss overlapping windows, possible macroeconomic regime changes, aggregate Focus statistics, the assumed IPCA release lag, and historical data revisions.
   \item Identify questions for further analysis.
 \end{itemize}
 
-\section*{References}
-\begin{itemize}
-  \item Banco Central do Brasil: Focus expectations data and 12-month forecast methodology.
-  \item Instituto Brasileiro de Geografia e Estatistica: SIDRA table 1737, annual IPCA table, and IPCA documentation.
-  \item Add the methodological reference used for the moving-block bootstrap.
-\end{itemize}
+\begin{thebibliography}{9}
+\bibitem{poledna2023}
+Poledna, S., Miess, M. G., Hommes, C., and Rabitsch, K. (2023).
+Economic forecasting with an agent-based model.
+\emph{European Economic Review}, 151, 104306.
+\url{https://doi.org/10.1016/j.euroecorev.2022.104306}.
+
+\bibitem{bcbfocus}
+Banco Central do Brasil. Expectativas de Mercado.
+Portal de Dados Abertos.
+\url{https://dadosabertos.bcb.gov.br/dataset/expectativas-mercado}.
+
+\bibitem{ibgeipca}
+Instituto Brasileiro de Geografia e Estat\'istica.
+\emph{\'Indice Nacional de Pre\c{c}os ao Consumidor Amplo (IPCA)}, SIDRA table 1737.
+\url{https://sidra.ibge.gov.br/tabela/1737}.
+
+\bibitem{kunsch1989}
+K\"unsch, H. R. (1989).
+The jackknife and the bootstrap for general stationary observations.
+\emph{The Annals of Statistics}, 17(3), 1217--1241.
+\url{https://doi.org/10.1214/aos/1176347265}.
+\end{thebibliography}
 
 \appendix
 \section{Additional Methods and AI Use}
@@ -106,7 +120,7 @@ Constructed horizon & MAE (p.p.) & Mean signed error (p.p.) \\
 \section{Implementation}
 \begin{itemize}
   \item Include key R code or point to the supplementary analysis notebooks.
-  \item Record the Focus snapshot, IBGE source, filters, package versions, and simulation seeds.
+  \item Point to \texttt{ipca\_quarterly\_agent\_comparison.ipynb}; record the Focus snapshot, IBGE source, filters, package versions, and bootstrap seed.
 \end{itemize}
 
 \end{document}
