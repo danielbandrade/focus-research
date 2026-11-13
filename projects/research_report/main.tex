@@ -32,19 +32,10 @@
 \section{Methods}
 
 \subsection{Data}
-The Central Bank of Brasil publishes a weekly suvey on the expectations of financial market players, called the Focus Report. 
-This works is based mainly on two data sources:
-\begin{itemize}
-  \item The expectation for inflation report from the Brazilian Central Bank, wich collects weekly data from market participants. 
-  \item The IBGE monthly realized inflation report. 
-\end{itemize}
+The Central Bank of Brazil publishes a weekly suvey on the expectations of economic indicators from financial market players, called the Focus Report. From this survey, we can recorver the estimate for the consumer inflation rate of Brazil, the IPCA, for following 3, 6 and 12 months. On the other hand, the Brazilian Institute for Statistcs (IBGE) publishes the monthly realized value for the IPCA. This study will use data from both of these sources to calculate statistics and produce simulations regarding the error between expected and realized value of inflation in Brazil. We use 279 forecast dates, one per month from November 2001 through January 2025.
 
 \subsection{Forecasts and error measures}
-\begin{itemize}
-  \item Compound the next 3, 6, or 12 monthly Focus medians; calculate realized inflation from matching IBGE index ratios.
-  \item Define signed error as forecast minus realized inflation: negative means underestimation and positive means overestimation. Report both direction counts and absolute-error measures, including MAE, quantiles, and ECDFs.
-  \item Compare the constructed 12-month forecast with the BCB's published 12-month median; use published dispersion only with the published forecast's error.
-\end{itemize}
+The core measurement for this work will be the signed error for the inflation expectations, defined as the forecast minus the realized inflation. From this, we will also relport absolute-error measures, including mean absolute errors (MAE), quantiles, and empirical cumulative distribution functions (ECDFs). We will also explore if the signed error is related to the standart deviation of the prediction. 
 
 \subsection{Annual target check: direction and closeness}
 \begin{itemize}

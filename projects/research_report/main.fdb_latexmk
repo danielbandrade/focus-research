@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1793998483.33819 "/Users/danielbandrade/Documents/programing/focus-research/projects/research_report/main.tex" "main.pdf" "main" 1793998483.55623 0
-  "/Users/danielbandrade/Documents/programing/focus-research/projects/research_report/main.tex" 1793998483.15019 5767 c493939a71ce57f10a34b6852391e567 ""
+["pdflatex"] 1794600384.12222 "/Users/danielbandrade/Documents/programing/focus-research/projects/research_report/main.tex" "main.pdf" "main" 1794600384.36773 0
+  "/Users/danielbandrade/Documents/programing/focus-research/projects/research_report/main.tex" 1794600383.92139 6035 d22e2736fe5b5401e36d95bb77413e73 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2026/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -49,8 +49,8 @@
   "/usr/local/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1783558597 5573038 b99aad5e4898a9034e953632f940512b ""
   "/usr/local/texlive/2026/texmf-var/web2c/pdftex/pdflatex.fmt" 1783558576 3636770 55a55b564a89dfc8118a2947e4a2d6a2 ""
   "/usr/local/texlive/2026/texmf.cnf" 1774209515 577 648cd9f92f9c0eac486f4c71c85cfbbe ""
-  "main.aux" 1793998483.52479 1500 e771007ed9f8f8b55728093b2987e92f "pdflatex"
-  "main.tex" 1793998483.15019 5767 c493939a71ce57f10a34b6852391e567 ""
+  "main.aux" 1794600384.32799 1500 1cc34143b57e91ccae88c0aecc52cd6b "pdflatex"
+  "main.tex" 1794600383.92139 6035 d22e2736fe5b5401e36d95bb77413e73 ""
   (generated)
   "main.aux"
   "main.log"
