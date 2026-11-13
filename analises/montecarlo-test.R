@@ -1,6 +1,6 @@
 set.seed(123)
 count = 0
-n = 2000
+n = 20000
 list = numeric(n)
 for(i in 1:n){
   x = runif(n=1)

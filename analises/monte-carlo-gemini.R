@@ -1,6 +1,6 @@
 set.seed(123)
 count <- 0
-n <- 2000
+n <- 200000
 estimativas_pi <- numeric(n)
 
 for (i in 1:n) {
@@ -12,13 +12,12 @@ for (i in 1:n) {
   }
   
   # Multiplica por 4 para estimar pi em vez de pi/4
-  estimativas_pi[i] <- (count / i)
+  estimativas_pi[i] <- (4*count / i)
 }
 
 # Exibe a estimativa final no console
 print(estimativas_pi[n])
-print(4*estimativas_pi[n])
 
 # Plota a convergência para pi
 plot(estimativas_pi, type = "l", ylab = "Estimativa de Pi", xlab = "Iterações")
-abline(h = pi/4, col = "red", lty = 2, lwd = 1.5)
+abline(h = pi, col = "red", lty = 2, lwd = 1.5)
